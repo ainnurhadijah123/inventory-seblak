@@ -1,7 +1,25 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Pesanan - Seblak Ronyok</title>
+    <!-- Load Bootstrap agar class bawaan Laravel tetap berfungsi -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #f8f9fa; 
+        }
+        @media print {
+            body { background: white !important; }
+            .card { box-shadow: none !important; border: none !important; padding: 0 !important; }
+            .d-print-none { display: none !important; }
+        }
+    </style>
+</head>
+<body>
 
-@section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center w-100 m-0">
     <div class="container py-4">
         <div class="card mx-auto shadow-sm" style="max-width: 400px;">
             <div class="card-body p-4 p-md-5 bg-white">
@@ -105,7 +123,7 @@
                     Kembali ke Antrean
                 </a>
             @else
-                <a href="{{ route('menu') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill">
+                <a href="{{ route('menu') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-white shadow-sm">
                     Kembali Menu
                 </a>
             @endif
@@ -113,11 +131,5 @@
     </div>
 </div>
 
-<style>
-    @media print {
-        body { background: white !important; }
-        .navbar, .custom-navbar, .alert { display: none !important; }
-        .card { box-shadow: none !important; border: none !important; }
-    }
-</style>
-@endsection
+</body>
+</html>
