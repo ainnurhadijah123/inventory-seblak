@@ -18,7 +18,7 @@ Langkah-langkah untuk menginstal dan menjalankan proyek ini di lingkungan lokal 
 
 1. **Clone Repository**
    ```bash
-   git clone <link-repository-github-anda>
+   git clone (https://github.com/ainnurhadijah123/inventory-seblak)
    cd seblak-ronyok
    ```
 
