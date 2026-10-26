@@ -115,15 +115,15 @@
             </button>
             
             @if(auth()->user()->role === 'admin')
-                <a href="{{ route('admin.transactions') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-white shadow-sm">
+                <a href="{{ route('admin.transactions') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-black shadow-sm text-white">
                     Kembali ke Laporan
                 </a>
             @elseif(auth()->user()->role === 'staff')
-                <a href="{{ route('orders.index') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-white shadow-sm">
+                <a href="{{ route('orders.index') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-black shadow-sm text-white">
                     Kembali ke Antrean
                 </a>
             @else
-                <a href="{{ route('menu') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-white shadow-sm">
+                <a href="{{ route('menu') }}" class="btn btn-outline-dark fw-bold px-4 rounded-pill bg-black shadow-sm text-white">
                     Kembali Menu
                 </a>
             @endif

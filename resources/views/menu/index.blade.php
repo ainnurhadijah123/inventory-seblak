@@ -34,7 +34,7 @@
     @endif
 
     <!-- FORM PEMESANAN UTAMA -->
-    <form action="{{ route('order.store') }}" method="POST" id="orderForm">
+    <form action="{{ route('order.confirm') }}" method="POST" id="orderForm">
         @csrf
 
         @if(auth()->check() && auth()->user()->role === 'staff')
@@ -55,7 +55,7 @@
                     <option value="0" data-price="0" selected>Level 0 - Tidak Pedas (Gratis)</option>
                     <option value="1" data-price="0">Level 1 - Sedang (Gratis)</option>
                     <option value="2" data-price="1000">Level 2 - Pedas Standar (+Rp 1.000)</option>
-                    <option value="3" data-price="2000">Level 3 - Pedas Nampol (+Rp 2.000)</option>
+                    <option value="3" data-price="2000">Level 3 - Pedas Mercon (+Rp 2.000)</option>
                 </select>
                 <small class="text-muted d-block mt-2">*Level 2 ke atas dikenakan biaya tambahan cabai.</small>
             </div>
@@ -209,7 +209,7 @@
         <div>
             <!-- type="submit" dan form="orderForm" agar berfungsi men-submit pesanan -->
             <button type="submit" form="orderForm" id="btn-proses" class="btn text-white fw-bold rounded-pill px-4 py-2 shadow-sm" style="background: {{ $themeBg }};" disabled>
-                Proses Pesanan (<span id="totalItemDisplay">0</span> Item)
+                Pesan Sekarang (<span id="totalItemDisplay">0</span> Item)
             </button>
         </div>
 

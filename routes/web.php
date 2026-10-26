@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:staff,customer')->group(function () {
         // Menggunakan method menuIndex khusus untuk halaman POS / Pemesanan Seblak
         Route::get('/menu', [ProductController::class, 'menuIndex'])->name('menu');
+        Route::post('/order/confirm', [App\Http\Controllers\OrderController::class, 'confirm'])->name('order.confirm');
         Route::post('/order', [SaleController::class, 'store'])->name('order.store');
     });
 
