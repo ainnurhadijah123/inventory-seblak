@@ -1,6 +1,6 @@
 # Seblak Ronyok - Inventory & Sales Management System
 
-Seblak Ronyok adalah aplikasi sistem kasir (Point of Sales) dan manajemen inventaris berbasis web yang dibangun menggunakan **Laravel**. Proyek ini dibuat untuk memenuhi tugas Ujian Tengah Semester (UTS) mata kuliah Web Programming 2, dengan fokus utama pada konsistensi data stok, keamanan transaksi, dan manajemen hak akses (Role-Based Access Control).
+Seblak Ronyok adalah aplikasi sistem kasir (Point of Sales) dan manajemen inventaris berbasis web yang dibangun menggunakan **Laravel**. Proyek ini memiliki fokus utama pada konsistensi data stok, keamanan transaksi, dan manajemen hak akses (Role-Based Access Control).
 
 ## 1. Project Overview
 Aplikasi ini memungkinkan warung Seblak Ronyok untuk mencatat master data (produk, kategori, pemasok) dan mengelola transaksi harian (penjualan ke pelanggan dan restok dari pemasok). Fitur utamanya adalah **pembaruan stok otomatis** yang aman dari bentrokan data (menggunakan database transaction dan lock).
