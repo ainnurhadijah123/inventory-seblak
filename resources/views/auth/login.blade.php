@@ -4,10 +4,9 @@
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow-lg border-0 p-4 p-md-5" style="width: 100%; max-width: 480px; border-radius: 20px; background-color: #ffffff;">
         
-        <!-- Logo / Judul -->
         <div class="text-center mb-4">
             <h3 class="fw-bold" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🔥 Seblak Ronyok</h3>
-            <p class="text-muted small">Silakan masuk untuk melanjutkan pesananmu.</p>
+            <p class="text-muted small">Silakan masuk untuk melanjutkan.</p>
         </div>
 
         @if(session('error'))

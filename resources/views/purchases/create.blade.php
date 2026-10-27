@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-bold small text-muted">TOTAL BIAYA KULAKAN (Rp)</label>
-                        <input type="number" name="total_cost" class="form-control" min="0" required>
+                        <input type="number" name="total_cost" class="form-control" min="0" placeholder="Contoh: 50000" required>
                     </div>
 
                     <button type="submit" class="btn {{ auth()->check() && auth()->user()->role === 'staff' ? 'btn-custom-blue' : 'btn-custom-red' }} text-white w-100 py-3 rounded-pill fw-bold shadow-sm" style="font-size: 1rem;">

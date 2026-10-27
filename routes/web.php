@@ -45,16 +45,30 @@ Route::middleware('auth')->group(function () {
         $user = auth()->user();
 
         if ($user->role === 'admin') {
+            // Uang Masuk dari Penjualan (dari tabel sales)
             $totalPenjualan = \App\Models\Sale::sum('total');
+            
+            // Uang Keluar (dari tabel purchases, kolomnya bernama 'total' sesuai database Anda)
+            $totalPengeluaran = \App\Models\Purchase::sum('total');
+            
+            // Hitung Pendapatan Bersih
+            $pendapatanBersih = $totalPenjualan - $totalPengeluaran;
+
             $totalProduk = \App\Models\Product::count();
             $stokMenipis = \App\Models\Product::where('stock', '<=', 5)->count();
-            return view('dashboard', compact('totalPenjualan', 'totalProduk', 'stokMenipis'));
+            
+            return view('dashboard', compact('totalPenjualan', 'totalProduk', 'stokMenipis', 'totalPengeluaran', 'pendapatanBersih'));
         }
         
         if ($user->role === 'staff') {
-            $pesananHariIni = \App\Models\Sale::whereDate('created_at', today())->count();
-            $pendapatanHariIni = \App\Models\Sale::whereDate('created_at', today())->sum('total');
-            return view('staff.dashboard', compact('pesananHariIni', 'pendapatanHariIni'));
+            // Menghitung SEMUA jumlah pesanan yang masuk ke warung hari ini
+            $totalTransactions = \App\Models\Sale::whereDate('created_at', \Carbon\Carbon::today())->count();
+            
+            // Menghitung SEMUA total uang masuk ke kasir hari ini
+            $totalRevenue = \App\Models\Sale::whereDate('created_at', \Carbon\Carbon::today())->sum('total');
+            
+            // Jika Anda sudah punya logika $popularProducts, tambahkan di sini. Jika belum, hapus saja koma dan variabelnya dari compact()
+            return view('staff.dashboard', compact('totalTransactions', 'totalRevenue'));
         }
 
         // 2. Jika CUSTOMER
@@ -72,7 +86,6 @@ Route::middleware('auth')->group(function () {
     // A. ROLE: STAFF & CUSTOMER (Sistem Kasir POS & Self-Service)
     // ---------------------------------------------------
     Route::middleware('role:staff,customer')->group(function () {
-        // Menggunakan method menuIndex khusus untuk halaman POS / Pemesanan Seblak
         Route::get('/menu', [ProductController::class, 'menuIndex'])->name('menu');
         Route::post('/order/confirm', [App\Http\Controllers\OrderController::class, 'confirm'])->name('order.confirm');
         Route::post('/order', [SaleController::class, 'store'])->name('order.store');

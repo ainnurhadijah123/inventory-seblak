@@ -11,7 +11,7 @@
         
         if(auth()->check()) {
             if(auth()->user()->role === 'staff') {
-                $navbarBg = 'linear-gradient(135deg, #36D1DC, #5B86E5)'; // Kasir (Biru)
+                $navbarBg = 'linear-gradient(135deg, #36D1DC, #5B86E5)'; 
             } elseif(auth()->user()->role === 'customer') {
                 $navbarBg = 'linear-gradient(135deg, #9C27B0, #e94b80)'; 
             }

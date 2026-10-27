@@ -55,7 +55,7 @@ class SaleController extends Controller
         }
 
         return DB::transaction(function () use ($request, $items) {
-            $spicyPrices = [0 => 0, 1 => 0, 2 => 1000, 3 => 2000, 4 => 3000, 5 => 5000];
+            $spicyPrices = [0 => 0, 1 => 0, 2 => 1000, 3 => 2000];
             $spicyLevel = (int) $request->input('spicy_level', 0);
             $spicyCost  = $spicyPrices[$spicyLevel] ?? 0;
             $totalBelanja = 0;
@@ -71,7 +71,7 @@ class SaleController extends Controller
                 }
 
                 $hargaSatuan = $product->price ?? $product->selling_price ?? 0;
-                $subtotal = $hargaSatuan * $qty; // TYPO DIPERBAIKI DI SINI
+                $subtotal = $hargaSatuan * $qty; 
                 $totalBelanja += $subtotal;
 
                 $detailItems[] = [
@@ -147,7 +147,6 @@ class SaleController extends Controller
     // 6. Menampilkan Laporan Transaksi (Untuk Admin) beserta Grafik
     public function laporan()
     {
-        // PERBAIKAN: Tambahkan with('user') agar nama pelanggan bisa ditarik
         $orders = Sale::with('user')->latest()->paginate(10);
         $totalRevenue = Sale::where('status', 'completed')->sum('total');
 

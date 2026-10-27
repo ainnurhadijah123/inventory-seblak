@@ -14,22 +14,22 @@ class DatabaseSeeder extends Seeder
         // 1. Buat Akun Demo (Admin, Staff, Customer)
         User::create([
             'name' => 'Admin Pemilik',
-            'email' => 'admin@seblak.com',
-            'password' => Hash::make('password123'),
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('kasir123'),
             'role' => 'admin',
         ]);
 
         User::create([
             'name' => 'Staf Kasir',
-            'email' => 'staff@seblak.com',
-            'password' => Hash::make('password123'),
+            'email' => 'kasir@gmail.com',
+            'password' => Hash::make('kasir123'),
             'role' => 'staff',
         ]);
 
         User::create([
             'name' => 'Pelanggan Setia',
-            'email' => 'customer@seblak.com',
-            'password' => Hash::make('password123'),
+            'email' => 'customer@gmail.com',
+            'password' => Hash::make('customer123'),
             'role' => 'customer',
         ]);
 

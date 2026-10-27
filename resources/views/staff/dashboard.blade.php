@@ -14,7 +14,7 @@
         <div class="col-md-5">
             <div class="p-4 text-center" style="border: 2px solid #2193b0; border-radius: 16px; background-color: transparent;">
                 <span class="d-block text-uppercase fw-bold text-muted mb-2" style="font-size: 0.85rem; letter-spacing: 1px;">Total Pesanan Hari Ini</span>
-                <h2 class="fw-bold text-dark mb-1">{{ $totalTransactions ?? 4 }} Transaksi</h2>
+                <h2 class="fw-bold text-dark mb-1">{{ $totalTransactions ?? 0 }} Transaksi</h2>
                 <small class="text-muted">Pesanan berhasil diproses hari ini.</small>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="col-md-5">
             <div class="p-4 text-center" style="border: 2px solid #2193b0; border-radius: 16px; background-color: transparent;">
                 <span class="d-block text-uppercase fw-bold text-muted mb-2" style="font-size: 0.85rem; letter-spacing: 1px;">Pendapatan Hari Ini</span>
-                <h2 class="fw-bold text-dark mb-1">Rp {{ number_format($totalRevenue ?? 109000, 0, ',', '.') }}</h2>
+                <h2 class="fw-bold text-dark mb-1">Rp {{ number_format($totalRevenue ?? 0, 0, ',', '.') }}</h2>
                 <small class="text-muted">Total pemasukan kasir hari ini.</small>
             </div>
         </div>
